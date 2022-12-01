@@ -23,13 +23,16 @@ RUN \
     # Prevent apt-get cache from being persisted to this layer.
     rm -rf /var/lib/apt/lists/*
 
+
+# Install Poetry
+RUN pip install ipykernel
 # Install Poetry
 RUN pip install poetry
 # Disable virtual environments (see notes in README.md)
 RUN poetry config virtualenvs.create false --local
-# Copy the environment definition file and install the environment
-COPY pyproject.toml /
-RUN poetry install
+# Copy the environment definition file and install the environment - reserved for startup script for use with github repos
+# COPY pyproject.toml /
+# RUN poetry install
 
 # Configure the kernel
 RUN python -m ipykernel install --sys-prefix
