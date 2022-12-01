@@ -24,7 +24,7 @@ RUN \
     rm -rf /var/lib/apt/lists/*
 
 
-# Install Poetry
+# Install ipykernel
 RUN pip install ipykernel
 # Install Poetry
 RUN pip install poetry
